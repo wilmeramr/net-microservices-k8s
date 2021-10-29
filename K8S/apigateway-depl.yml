@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apigateway-depl
+spec: 
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apigatewayservice
+  template:
+    metadata:
+      labels:
+        app: apigatewayservice
+    spec:
+      containers:
+        - name: apigatewayservice
+          image: wilmeramr/apigatewayservice:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: apigateway-clusterip-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: apigatewayservice
+  ports:
+  - name: apigatewayservice
+    protocol: TCP
+    port: 80
+    targetPort: 80

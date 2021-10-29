@@ -1,0 +1,31 @@
+{
+    "Routes": [
+  
+
+      {
+        "DownstreamPathTemplate": "/api/platforms",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "platforms-clusterip-srv",
+            "Port": "80"
+          }
+        ],
+        "UpstreamPathTemplate": "/platforms",
+        "UpstreamHttpMethod": [ "GET","POST" ]
+      },
+      {
+        "DownstreamPathTemplate": "/api/c/platforms",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "commands-clusterip-srv",
+            "Port": "80"
+          }
+        ],
+        "UpstreamPathTemplate": "/c/platforms",
+        "UpstreamHttpMethod": [ "POST" ]
+      }
+  
+    ]
+  }
