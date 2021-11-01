@@ -61,3 +61,5 @@ spec:
   - protocol: TCP
     port: 1433
     targetPort: 1433
+
+#kubectl create secret generic mssql --from-literal=SA_PASSWORD="pa55w0rd!"

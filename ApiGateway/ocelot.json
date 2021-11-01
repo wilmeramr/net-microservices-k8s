@@ -15,6 +15,18 @@
         "UpstreamHttpMethod": [ "GET","POST" ]
       },
       {
+        "DownstreamPathTemplate": "/api/platforms/{id}",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "platforms-clusterip-srv",
+            "Port": "80"
+          }
+        ],
+        "UpstreamPathTemplate": "/platforms/{id}",
+        "UpstreamHttpMethod": [ "GET" ]
+      },
+      {
         "DownstreamPathTemplate": "/api/c/platforms",
         "DownstreamScheme": "http",
         "DownstreamHostAndPorts": [
@@ -24,7 +36,31 @@
           }
         ],
         "UpstreamPathTemplate": "/c/platforms",
-        "UpstreamHttpMethod": [ "POST" ]
+        "UpstreamHttpMethod": [ "POST","GET" ]
+      },
+      {
+        "DownstreamPathTemplate": "/api/c/platforms/{platformId}/commands",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "commands-clusterip-srv",
+            "Port": "80"
+          }
+        ],
+        "UpstreamPathTemplate": "/c/platforms/{platformId}/commands",
+        "UpstreamHttpMethod": [ "POST","GET" ]
+      },
+      {
+        "DownstreamPathTemplate": "/api/c/platforms/{platformId}/commands/{commandId}",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "commands-clusterip-srv",
+            "Port": "80"
+          }
+        ],
+        "UpstreamPathTemplate": "/c/platforms/{platformId}/commands/{commandId}",
+        "UpstreamHttpMethod": [ "GET" ]
       }
   
     ]
